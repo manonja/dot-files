@@ -139,11 +139,9 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle pip
 antigen bundle lein
-antigen bundle vi-mode
 antigen bundle sbt
 antigen bundle command-not-found
 antigen bundle golang
-antigen bundle apple-touchbar
 antigen bundle docker-helpers
 antigen bundle petervanderdoes/gitflow-avh --branch=master
 antigen bundle joel-porquet/zsh-dircolors-solarized.git
@@ -165,7 +163,6 @@ antigen apply
 bindkey "^ " autosuggest-accept
 
 # Disable next line if you don't want vi key binding
-bindkey -v
 export KEYTIMEOUT=1
 bindkey "^R" history-incremental-search-backward
 
