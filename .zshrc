@@ -137,9 +137,6 @@ antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git
-antigen bundle pip
-antigen bundle lein
-antigen bundle sbt
 antigen bundle command-not-found
 antigen bundle golang
 antigen bundle docker-helpers
@@ -166,38 +163,12 @@ bindkey "^ " autosuggest-accept
 export KEYTIMEOUT=1
 bindkey "^R" history-incremental-search-backward
 
-GOPATH="~/go/bin"
-
-if [ -x "$GOPATH/go" ]; then
-  export GOPATH
-  export PATH="$GOPATH:$PATH"
-fi
 
 if [ -x "/usr/local/sbin" ]; then
   export PATH="/usr/local/sbin:$PATH"
 fi
 
-export PATH=$HOME/.miniconda3/bin:"$PATH"
 
-LATEX_PATH=/usr/local/texlive/2019/bin/x86_64-darwin/
-if [ -d "$LATEX_PATH" ]; then
-  export PATH="$LATEX_PATH:$PATH"
-fi
+export PATH=$HOME/.local/bin:"$PATH"
 
-if [ -x "$HOME/.miniconda3/bin/conda" ]; then
-  # added by Miniconda3 4.5.12 installer
-  # >>> conda init >>>
-  # !! Contents within this block are managed by 'conda init' !!
-  __conda_setup="$(CONDA_REPORT_ERRORS=false '$HOME/.miniconda3/bin/conda' shell.zsh hook 2> /dev/null)"
-  if [ $? -eq 0 ]; then
-      \eval "$__conda_setup"
-  else
-      if [ -f "$HOME/.miniconda3/etc/profile.d/conda.sh" ]; then
-          . "$HOME/.miniconda3/etc/profile.d/conda.sh"
-          CONDA_CHANGEPS1=false conda activate base
-      else
-          \export PATH="$HOME/.miniconda3/bin:$PATH"
-      fi
-  fi
-  unset __conda_setup
-fi
+source $HOME/.local/bin/aws_zsh_completer.sh
